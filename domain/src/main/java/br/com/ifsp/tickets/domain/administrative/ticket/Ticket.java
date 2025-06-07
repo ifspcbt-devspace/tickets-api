@@ -66,7 +66,7 @@ public class Ticket extends Entity<TicketID> {
 
     public boolean isValidToConsume() {
         final LocalDateTime now = LocalDateTime.now();
-        return !now.toLocalDate().isBefore(this.validIn);
+        return now.toLocalDate().isEqual(this.validIn);
     }
 
     public void cancel() {
