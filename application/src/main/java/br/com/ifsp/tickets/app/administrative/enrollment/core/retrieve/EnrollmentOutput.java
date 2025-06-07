@@ -17,7 +17,7 @@ public record EnrollmentOutput(
     public static EnrollmentOutput from(Enrollment enrollment) {
         return new EnrollmentOutput(
                 enrollment.getId().toString(),
-                enrollment.getUserID().toString(),
+                enrollment.getUserID().map(us -> us.getValue().toString()).orElse(null),
                 enrollment.getEventID().toString(),
                 enrollment.getCreatedAt(),
                 enrollment.getStatus(),
