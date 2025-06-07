@@ -65,8 +65,7 @@ public class Ticket extends Entity<TicketID> {
     }
 
     public boolean isValidToConsume() {
-        final LocalDateTime now = LocalDateTime.now();
-        return now.toLocalDate().isEqual(this.validIn);
+        return LocalDate.now().isEqual(this.validIn);
     }
 
     public void cancel() {
@@ -106,7 +105,7 @@ public class Ticket extends Entity<TicketID> {
             return Optional.of(exception);
         }
 
-        if (this.isValidToConsume()) {
+        if (!this.isValidToConsume()) {
             final TicketConsumeException exception = new TicketConsumeException("Ticket is not valid yet");
             this.registerEvent(new TicketConsumedError(this, exception.getMessage()));
             return Optional.of(exception);
