@@ -85,3 +85,5 @@ Antes, certifique-se de que a rede `ifspcbt` está marcada como `external: true`
 ---
 
 📫 Em caso de dúvidas ou sugestões, sinta-se à vontade para abrir uma issue ou contribuir com o projeto!
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-donate-yellow?logo=buymeacoffee&style=for-the-badge)](https://buymeacoffee.com/oleonardosilva)
