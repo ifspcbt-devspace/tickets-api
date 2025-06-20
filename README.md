@@ -3,6 +3,7 @@
 
 Este projeto é o backend de um sistema de ingressos, desenvolvido em **Java** com **Spring Boot**, seguindo os princípios de **SOLID**, **Clean Architecture** e **Domain-Driven Design (DDD)**.  
 Entre os módulos utilizados estão o **Spring Security** e o **Spring Data JPA**.
+> 💡 Em caso de dúvidas, problemas ou sugestões, sinta-se à vontade para abrir uma [issue](https://github.com/ifspcbt-devspace/tickets-api/issues). Estamos abertos a ideias e contribuições da comunidade!
 
 ## 📦 Pré-requisitos
 
