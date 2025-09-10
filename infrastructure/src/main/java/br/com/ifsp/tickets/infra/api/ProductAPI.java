@@ -35,7 +35,7 @@ public interface ProductAPI {
     ResponseEntity<Void> createTicketSale(@PathVariable String id, @RequestBody CreateTicketSaleRequest request);
 
     @GetMapping(
-            value = "/{id}/ticketSale", consumes = "application/json")
+            value = "/list")
     @Operation(
             summary = "Get ticket sale by event id",
             description = "Get ticket sale by event id",
@@ -44,5 +44,5 @@ public interface ProductAPI {
                     @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(schema = @Schema(implementation = APIErrorResponse.class)))
             }
     )
-    ResponseEntity<Pagination<TicketSaleResponse>> getTicketSaleByEventId(@PathVariable String id);
+    ResponseEntity<Pagination<TicketSaleResponse>> getTicketSaleByEventId(@RequestParam(name = "event_id") String id);
 }

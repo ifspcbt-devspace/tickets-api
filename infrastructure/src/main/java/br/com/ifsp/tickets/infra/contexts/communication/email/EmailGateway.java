@@ -19,6 +19,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,6 +53,11 @@ public class EmailGateway implements IEmailGateway {
     public List<Email> findNotSent() {
         final PageRequest request = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "createdAt"));
         return this.repository.findBySentIsFalseAndFailedAttemptsIsLessThan(request, 3).map(EmailJpaEntity::toAggregate).getContent();
+    }
+
+    @Override
+    public void deleteAllBeforeDate(LocalDateTime beforeDate) {
+        this.repository.deleteAllByCreatedAtBefore(beforeDate);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package br.com.ifsp.tickets.domain.communication.email;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,5 +13,8 @@ public interface IEmailGateway {
     Optional<Email> findById(EmailID anID);
 
     List<Email> findNotSent();
+
+    void deleteAllBeforeDate(LocalDateTime beforeDate);
+
     boolean send(Email email);
 }
